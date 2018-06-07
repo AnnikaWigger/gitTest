@@ -1,0 +1,286 @@
+PS C:\Users\annik\Desktop\gitTest> git --version
+git version 2.17.1.windows.2
+PS C:\Users\annik\Desktop\gitTest> git init
+Initialized empty Git repository in C:/Users/annik/Desktop/gitTest/.git/
+PS C:\Users\annik\Desktop\gitTest> git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        test.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\annik\Desktop\gitTest>
+PS C:\Users\annik\Desktop\gitTest> git add .
+
+PS C:\Users\annik\Desktop\gitTest> git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   test.txt
+
+PS C:\Users\annik\Desktop\gitTest> git config --global user.email "annika.wigger@gmail.com"
+PS C:\Users\annik\Desktop\gitTest> git config --global user.name "Annika Wigger"
+
+PS C:\Users\annik\Desktop\gitTest> git commit -m "initial commit"
+[master (root-commit) 473ac06] initial commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test.txt
+PS C:\Users\annik\Desktop\gitTest> git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   test.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+PS C:\Users\annik\Desktop\gitTest> git diff
+diff --git a/test.txt b/test.txt
+index e69de29..b5fc21b 100644
+--- a/test.txt
++++ b/test.txt
+@@ -0,0 +1 @@
++Hallo
+
+PS C:\Users\annik\Desktop\gitTest> git remote add origin https://github.com/AnnikaWigger/gitTest.git
+
+PS C:\Users\annik\Desktop\gitTest> git push -u origin master
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 214 bytes | 214.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/AnnikaWigger/gitTest.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+PS C:\Users\annik\Desktop\gitTest> git commit -m "added hello"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+        modified:   test.txt
+
+no changes added to commit
+
+PS C:\Users\annik\Desktop\gitTest> git add .
+PS C:\Users\annik\Desktop\gitTest> git commit -m "added hello"
+[master 5686483] added hello
+ 1 file changed, 1 insertion(+)
+
+PS C:\Users\annik\Desktop\gitTest> git branch name
+
+PS C:\Users\annik\Desktop\gitTest> git checkout name
+Switched to branch 'name'
+
+PS C:\Users\annik\Desktop\gitTest> git status
+On branch name
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   test.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+PS C:\Users\annik\Desktop\gitTest> git add .
+PS C:\Users\annik\Desktop\gitTest> git commit -m "hallo nick"
+[name 1a584e7] hallo nick
+ 1 file changed, 1 insertion(+)
+
+PS C:\Users\annik\Desktop\gitTest> git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+PS C:\Users\annik\Desktop\gitTest> git merge name
+Updating 5686483..1a584e7
+Fast-forward
+ test.txt | 1 +
+ 1 file changed, 1 insertion(+)
+PS C:\Users\annik\Desktop\gitTest> git checkout name
+Switched to branch 'name'
+PS C:\Users\annik\Desktop\gitTest> git commit
+On branch name
+Changes not staged for commit:
+        modified:   test.txt
+
+no changes added to commit
+
+PS C:\Users\annik\Desktop\gitTest> git add .
+PS C:\Users\annik\Desktop\gitTest> git commit
+Aborting commit due to empty commit message.
+PS C:\Users\annik\Desktop\gitTest> git commit -m "first line change"
+[name 6fb360b] first line change
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+PS C:\Users\annik\Desktop\gitTest> git status
+On branch name
+nothing to commit, working tree clean
+
+PS C:\Users\annik\Desktop\gitTest> git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+PS C:\Users\annik\Desktop\gitTest> git merge name
+Updating 1a584e7..6fb360b
+Fast-forward
+ test.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+PS C:\Users\annik\Desktop\gitTest> git push
+Counting objects: 9, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (9/9), 718 bytes | 239.00 KiB/s, done.
+Total 9 (delta 0), reused 0 (delta 0)
+To https://github.com/AnnikaWigger/gitTest.git
+   473ac06..6fb360b  master -> master
+
+PS C:\Users\annik\Desktop\gitTest> git checkout name
+Switched to branch 'name'
+
+PS C:\Users\annik\Desktop\gitTest> git push -u origin name
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/AnnikaWigger/gitTest.git
+ * [new branch]      name -> name
+Branch 'name' set up to track remote branch 'name' from 'origin'.
+
+PS C:\Users\annik\Desktop\gitTest> git status
+On branch name
+Your branch is up to date with 'origin/name'.
+
+nothing to commit, working tree clean
+
+PS C:\Users\annik\Desktop\gitTest> git pull
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/AnnikaWigger/gitTest
+   6fb360b..bf077e7  name       -> origin/name
+Updating 6fb360b..bf077e7
+Fast-forward
+ "schei\303\237e" | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 "schei\303\237e"
+
+PS C:\Users\annik\Desktop\gitTest> git pull origin name
+From https://github.com/AnnikaWigger/gitTest
+ * branch            name       -> FETCH_HEAD
+Already up to date.
+
+PS C:\Users\annik\Desktop\gitTest> git status
+On branch name
+Your branch is up to date with 'origin/name'.
+
+nothing to commit, working tree clean
+
+PS C:\Users\annik\Desktop\gitTest> git status
+On branch name
+Your branch is up to date with 'origin/name'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   test.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+PS C:\Users\annik\Desktop\gitTest> git add .
+PS C:\Users\annik\Desktop\gitTest> git commit - m "new code"
+error: pathspec '-' did not match any file(s) known to git.
+error: pathspec 'm' did not match any file(s) known to git.
+error: pathspec 'new code' did not match any file(s) known to git.
+PS C:\Users\annik\Desktop\gitTest> git status
+On branch name
+Your branch is up to date with 'origin/name'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   test.txt
+
+PS C:\Users\annik\Desktop\gitTest> git push origin name
+Everything up-to-date
+PS C:\Users\annik\Desktop\gitTest> git --versiongit status
+unknown option: --versiongit
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+PS C:\Users\annik\Desktop\gitTest> git status
+On branch name
+Your branch is up to date with 'origin/name'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   test.txt
+
+PS C:\Users\annik\Desktop\gitTest> git checkout master
+Switched to branch 'master'
+M       test.txt
+Your branch is up to date with 'origin/master'.
+PS C:\Users\annik\Desktop\gitTest> git diff
+PS C:\Users\annik\Desktop\gitTest> git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   test.txt
+
+PS C:\Users\annik\Desktop\gitTest> git push master
+fatal: 'master' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+PS C:\Users\annik\Desktop\gitTest> git push origin master
+Everything up-to-date
+PS C:\Users\annik\Desktop\gitTest> git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   test.txt
+
+PS C:\Users\annik\Desktop\gitTest> git checkout name
+Switched to branch 'name'
+M       test.txt
+Your branch is up to date with 'origin/name'.
+PS C:\Users\annik\Desktop\gitTest> git checkout master
+Switched to branch 'master'
+M       test.txt
+Your branch is up to date with 'origin/master'.
+PS C:\Users\annik\Desktop\gitTest> git pull
+Already up to date.
+PS C:\Users\annik\Desktop\gitTest> git pull name
+fatal: 'name' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+PS C:\Users\annik\Desktop\gitTest> git pull origin name
+From https://github.com/AnnikaWigger/gitTest
+ * branch            name       -> FETCH_HEAD
+Updating 6fb360b..bf077e7
+Fast-forward
+ "schei\303\237e" | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 "schei\303\237e"
+PS C:\Users\annik\Desktop\gitTest>
